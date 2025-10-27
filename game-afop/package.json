@@ -1,0 +1,57 @@
+{
+  "name": "game-afop",
+  "config": {
+    "game": "Avatar: Frontiers of Pandora",
+    "extensionName": "Game: Avatar: Frontiers of Pandora",
+    "namespace": "game-avatar-frontiers-of-pandora",
+    "issueTracker": "https://www.nexusmods.com/site/mods/1237?tab=bugs"
+  },
+  "version": "1.0.3",
+  "description": "Adds support for Avatar: Frontiers of Pandora to Vortex Mod Manager. Ubisoft Connect, Steam and Epic (not verified) versions supported.",
+  "main": "./dist/index.js",
+  "repository": "",
+  "scripts": {
+    "webpack": "node ./node_modules/webpack/bin/webpack --config webpack.config.js --progress",
+    "bundle7z": "7z a -t7z ./out/game-afop_%npm_package_version%.7z ./dist/*.*",
+    "build": "npm run webpack && extractInfo",
+    "build_dep": "npm run webpack && extractInfo && yarn copyassets",
+    "copyassets": "node scripts/copyAssets.js",
+    "copyplugin": "yarn copyassets && node scripts/copyplugin.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix"
+  },
+  "author": "shadowsiam",
+  "license": "GPL-3.0",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "7z-bin": "Nexus-Mods/7z-bin",
+    "@nexusmods/nexus-api": "^1.1.5",
+    "@types/ini": "^4.1.1",
+    "@types/node": "^15.12.4",
+    "@types/react-bootstrap": "^0.32.37",
+    "@types/string-template": "^1.0.7",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "ini": "^5.0.0",
+    "react": "^19.2.0",
+    "react-bootstrap": "0.33.1",
+    "react-i18next": "^16.0.0",
+    "redux-act": "1.8.0",
+    "semver": "^7.7.3",
+    "string-template": "^1.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "vortex-api": "Nexus-Mods/vortex-api",
+    "webpack": "^5.57.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {}
+}
